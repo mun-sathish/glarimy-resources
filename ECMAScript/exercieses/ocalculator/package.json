@@ -1,0 +1,21 @@
+{
+  "name": "ocalculator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "babel index.js Calculator.js -d dist --presets es2015,stage-2",
+    "start": "http-server",
+    "clean": "rm -rf node_modules dist"
+  },
+  "author": "Krishna Mohan Koyya",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "nodemon": "^1.18.10",
+    "http-server": "^0.11.1"
+  }
+}

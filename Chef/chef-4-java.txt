@@ -1,0 +1,37 @@
+1. Install the mysql cookbook from supermarket
+
+chef-repo/cookbooks> git init
+chef-repo/cookbooks> git add .
+chef-repo/cookbooks> git commit -m "cookbooks"
+chef-repo/cookbooks> knife supermarket install java
+
+2. Upload the java cookbook to the server
+
+knife cookbook upload homebrew
+knife cookbook upload windows
+knife cookbook upload java
+
+3. Generate jee cookbook
+
+chef-repo/cookbooks> chef generate cookbook jee
+
+4. Edit the chef-repo/cookbooks/jee/metadata.rb
+
+5. Edit the chef-repo/cookbooks/jee/recipes/default.rb
+
+8. Upload the cookbook to the server
+
+knife cookbook upload jee
+
+9. Add the recipe to the runlist on the node
+
+chef-repo> knife node run_list add glarimy-node 'recipe[jee::default]'
+
+10. Run the chef-client on the node
+
+chef-repo> knife ssh -i ./chef.pem 'name:glarimy-node' 'sudo chef-client' -x root
+
+11. Verify the results on the node
+
+chef-repo> ssh -i ./chef.pem root@54.86.222.53
+root@node-machine> java -version

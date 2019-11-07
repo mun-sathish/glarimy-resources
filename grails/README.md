@@ -1,0 +1,1 @@
+![grails-web-architecture.jpg](grails-web-architecture.jpg)

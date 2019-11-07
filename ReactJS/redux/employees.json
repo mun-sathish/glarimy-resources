@@ -1,0 +1,9 @@
+{"employees": [{
+    "id":"GTS0001",
+    "name": "Krishna Mohan Koyya",
+    "email": "krishna@glarimy.com"
+}, {
+    "id":"GTS0006",
+    "name": "Prabhudeva Pangidi",
+    "email": "prabhudeva.pangidi@glarimy.com"
+}]}

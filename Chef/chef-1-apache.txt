@@ -1,0 +1,23 @@
+1. Generate the cookbook
+
+chef-repo/cookbooks> chef generate cookbook apache
+
+2. Create folder chef-repo/cookbooks/apache/files and file homepage.html under the folder
+
+3. Edit the homepage.html with some static html content
+
+4. Edit the chef-repo/cookbooks/apache/recipes/default.rb with required packages
+
+5. Upload the cookbook to the server
+
+knife cookbook upload apache
+
+6. Add the recipe to the runlist on the node
+
+chef-repo> knife node run_list add glarimy-node 'recipe[apache::default]'
+
+7. Run the chef-client on the node
+
+chef-repo> knife ssh -i ./chef.pem 'name:glarimy-node' 'sudo chef-client' -x root
+
+8. Check the homepage at http://54.86.222.53/glarimy/index.html

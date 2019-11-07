@@ -1,0 +1,1 @@
+default['minutes'] = 10

@@ -1,0 +1,55 @@
+1. Install ChefDK 
+2. Install Virtual Box
+3. Install Vagrant
+4. Create a cookbook mytests
+5. Edit the kitchen.yml
+
+---
+driver:
+  name: vagrant
+
+provisioner:
+  name: chef_zero
+
+verifier:
+  name: inspec
+
+platforms:
+  - name: ubuntu-16.04
+
+suites:
+  - name: default
+    run_list:
+      - recipe[mytests::default]
+    verifier:
+      inspec_tests:
+        - test/integration/default
+    attributes:
+
+6. kitchen list
+Lists the virtual machines created for the kitchen. It should be zero initially
+7. kitchen create default-ubuntu-1604
+Creates a virtual machine for the kitchen by naming the suite-name and platform-name.
+8. kitchen list
+Sould list the newly created virtual box
+9. Write the recipe (mytests/recipes/default.rb)
+
+package "git"
+
+10. kitchen converge
+Runs the recipe on the ubuntu virtual box
+
+11. kitchen login
+Logs into the virtual box, to verify if git is installed and exit
+
+12. Edit the mytests/test/integration/default/default_test.rb
+
+describe package('git') do
+  it { should be_installed }
+end
+
+13. kitchen verify
+Runs the test
+
+14. kitchen test
+Runs everything

@@ -1,0 +1,6 @@
+global: 
+  css: 
+    theme: 
+      css/styles.css: {} 
+  js: 
+    js/scripts/js: {} 

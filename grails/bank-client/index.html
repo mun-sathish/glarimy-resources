@@ -1,0 +1,62 @@
+<html>
+
+<head>
+    <script src="jquery-3.3.1.js"></script>
+    <title>Library</title>
+    <script>
+        $(document).ready(() => {
+            $('#form').show();
+            $('#result').hide();
+            $('#btn').click(() => {
+                $.ajax({
+                    url: 'http://localhost:8080/customer',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({
+                        name: $('#name').val(),
+                        phone: $('#phone').val()
+                    }),
+                    dataType: 'json',
+                    success: function (account) {
+                        let html = `
+                            Account opened successfully!<br/>
+                            Number: ${account.id}<br/>
+                            Balance: ${account.balance}<br/>
+                        `
+                        $('#result').html(html);
+                        $('#form').hide();
+                        $('#result').show();
+                    },
+                    error: function (error, status) {
+                        console.log('failed to account');
+                    }
+                });
+            });
+        })
+    </script>
+</head>
+
+<body>
+    <h1>Amadeus Bank</h1>
+    <hr />
+    <div id='form'>
+        <h2>Open New Online Account</h2>
+        <table>
+            <tr>
+                <td>Name</td>
+                <td><input id='name'></td>
+            </tr>
+            <tr>
+                <td>Phone Number </td>
+                <td><input id='phone'></td>
+            </tr>
+            <tr>
+                <td colspan="2" align='right'><button id='btn'>Open Account</button></td>
+            </tr>
+        </table>
+    </div>
+    <div id='result'>
+    </div>
+</body>
+
+</html>

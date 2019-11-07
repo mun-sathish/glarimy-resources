@@ -1,0 +1,40 @@
+<html>
+
+<head>
+    <title>Tasks</title>
+    <style>
+        table tr td {
+            padding: 10px;
+        }
+
+        .date {
+            background-color: black;
+            color: white;
+            width: 50px;
+        }
+
+        .day {
+            background-color: yellow;
+        }
+
+        .tasks {
+            border: solid 1px #DDD;
+            width: 100%;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        function showTasks(e) {
+            console.log(e.target.id);
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Tasks</h1>
+    <hr />
+    <div id='tasks'></div>
+</body>
+<script type='text/javascript' src='index.js'></script>
+
+</html>

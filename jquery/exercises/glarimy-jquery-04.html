@@ -1,0 +1,34 @@
+<html>
+
+<head>
+    <title>JQuery</title>
+    <script src='jquery-3.3.1.js'></script>
+    <script>
+        $(document).ready(function () {
+            let question = [{
+                description: "What is the latest version of HTML?",
+                a: "5",
+                b: "4",
+                c: "3",
+                d: "1.2"
+            }];
+            //Write the code to display this question in the div with id 'question'.
+            //You should not change anything in the HTML other than writing the code in this script.
+        });
+    </script>
+</head>
+
+<body>
+    <div id='question'>
+        <div id='discription'></div>
+        <div>
+            <input type='radio' id='a' name='choice' value='a'><span></span><br />
+            <input type='radio' id='b' name='choice' value='b'><span></span><br />
+            <input type='radio' id='c' name='choice' value='c'><span></span><br />
+            <input type='radio' id='d' name='choice' value='d'><span></span>
+        </div>
+        <button>Evaluate</button>
+    </div>
+</body>
+
+</html>

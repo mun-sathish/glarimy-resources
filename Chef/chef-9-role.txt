@@ -1,0 +1,8 @@
+1. Create file glarimy-webserver-role.rb under chef-repo/roles folder
+2. Edit the file glarimy-webserver-role.rb
+3. Update the role
+chef-repo> knife role from file roles/glarimy-webserver-role.rb
+4. Update the chef-repo/.chef/knife.rb
+5. Assign the role to glarimy-node
+chef-repo> knife node edit glarimy-node
+6. Verify that the two recipes (cron & webserver) are deployed

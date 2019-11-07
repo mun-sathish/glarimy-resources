@@ -1,0 +1,52 @@
+<html>
+
+<head>
+    <title>Calculator</title>
+    <script>
+        function ajax(url) {
+            return new Promise((resolve, reject) => {
+                let xhr = new XMLHttpRequest();
+                xhr.open('get', url, true);
+                xhr.onreadystatechange = function () {
+                    if (xhr.status == 200 && xhr.readyState == 4) {
+                        resolve(xhr.responseText);
+                    }
+                }
+                xhr.send();
+            });
+        }
+        function fetchEmployees() {
+            console.log('fetching');
+            let xhr = new XMLHttpRequest();
+            xhr.open('get', 'employees.json', true);
+            xhr.onreadystatechange = function () {
+                if (xhr.status == 200 && xhr.readyState == 4) {
+                    let array = JSON.parse(xhr.responseText);
+                    array.forEach(function (e) {
+                        document.getElementById("list").innerHTML += `<li>${e.name}</li>`;
+                    });
+                }
+            }
+            xhr.send();
+        }
+        function listEmployees() {
+            console.log('fetching');
+            fetch('employees.json').then(response => {
+                response.json().then(array => {
+                    array.forEach(function (e) {
+                        document.getElementById("list").innerHTML += `<li>${e.name}</li>`;
+                    });
+                });
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <button onclick="listEmployees()">Load</button>
+    <hr />
+    <ul id='list'></ul>
+</body>
+<script type='text/javascript' src='index.js'></script>
+
+</html>

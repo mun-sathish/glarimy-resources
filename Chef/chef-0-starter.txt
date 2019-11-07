@@ -1,0 +1,26 @@
+1. Create an organization at https://manage.chef.io, download and extract the starter kit
+
+Organization: glarimy
+Extracted starter kit: chef-repo
+
+2. Upload the cookbook to the server
+
+knife cookbook upload starter
+
+3. Create an Ubuntu 16.0 EC2 instance on amazon. Note down the IP address, download the key file and change the permissions to 600.
+
+IP Address: 54.86.222.53
+Key file: chef-repo/chef.pem 
+
+4. Bootstrap the node
+
+chef-repo> knife bootstrap 54.86.222.53 -U root -i ./chef.pem -N glarimy-node —sudo
+
+
+5. Add the recipe to the runlist on the node
+
+chef-repo> knife node run_list add glarimy-node 'recipe[starter::default]'
+
+6. Run the chef-client on the node
+
+chef-repo> knife ssh -i ./chef.pem 'name:glarimy-node' 'sudo chef-client' -x root

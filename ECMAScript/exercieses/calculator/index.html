@@ -1,0 +1,48 @@
+<html>
+
+<head>
+    <title>Calculator</title>
+    <script type='text/javascript' src='./sum.js'></script>
+    <script type='text/javascript' src='./diff.js'></script>
+    <script>
+        addEventListener('load', function () {
+            document.getElementById('addBtn').addEventListener('click', function () {
+                const first = document.getElementById('first').value;
+                const second = document.getElementById('second').value;
+                document.getElementById('result').innerHTML = `${first} + ${second} = ${sum(first, second)}`;
+
+            });
+            document.getElementById('subtractBtn').addEventListener('click', function () {
+                const first = document.getElementById('first').value;
+                const second = document.getElementById('second').value;
+                document.getElementById('result').innerHTML = `${first} - ${second} = ${diff(first, second)}`;
+
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <table>
+        <tbody>
+            <tr>
+                <td>First Number</td>
+                <td><input id='first' placeholder="enter first integer" /></td>
+            </tr>
+            <tr>
+                <td>Second Number</td>
+                <td><input id='second' placeholder="enter second integer" /></td>
+            </tr>
+            <tr>
+                <td colspan="2" align='right'>
+                    <button id='addBtn'>Add</button>
+                    <button id='subtractBtn'>Subtract</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <hr/>
+    RESULT: <span id='result'></span>
+</body>
+
+</html>

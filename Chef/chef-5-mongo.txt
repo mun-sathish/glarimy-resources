@@ -1,0 +1,43 @@
+1. Install the sc-mongodb cookbook from supermarket
+
+chef-repo/cookbooks> git init
+chef-repo/cookbooks> git add .
+chef-repo/cookbooks> git commit -m "cookbooks"
+chef-repo/cookbooks> knife supermarket install sc-mongodb
+
+2. Upload the sc-mongodb cookbook to the server
+
+knife cookbook upload apt
+knife cookbook upload yum
+knife cookbook upload seven_zip
+knife cookbook upload mingw
+knife cookbook upload build-essential
+knife cookbook upload sc-mongodb
+
+3. Generate mongodb cookbook
+
+chef-repo/cookbooks> chef generate cookbook mongodb
+
+4. Edit the chef-repo/cookbooks/mongodb/metadata.rb
+
+5. Edit the chef-repo/cookbooks/mongodb/recipes/default.rb
+
+8. Upload the cookbook to the server
+
+knife cookbook upload mongodb
+
+9. Add the recipe to the runlist on the node
+
+chef-repo> knife node run_list add glarimy-node 'recipe[mongodb::default]'
+
+10. Run the chef-client on the node
+
+chef-repo> knife ssh -i ./chef.pem 'name:glarimy-node' 'sudo chef-client' -x root
+
+11. Verify the results on the node
+
+chef-repo> ssh -i ./chef.pem root@54.86.222.53
+root@node-machine> export LC_ALL=C
+root@node-machine> mongo
+mongo> show dbs;
+mongo> exit;

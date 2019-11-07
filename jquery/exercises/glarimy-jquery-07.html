@@ -1,0 +1,39 @@
+<html>
+
+<head>
+    <title>JQuery</title>
+    <script src='jquery-3.3.1.js'></script>
+    <script>
+        $(document).ready(function () {
+            let questions = [{
+                id: 1,
+                description: "What is the current version of HTML?",
+                a: "1",
+                b: "2",
+                c: "3",
+                d: "5"
+            }, {
+                id: 2,
+                description: "What is the current version of CSS?",
+                a: "1",
+                b: "2",
+                c: "3",
+                d: "5"
+            }];
+            // insert all questions in the div with id questions.
+            // When it appears, the question description should appear on top
+            // and the four options should appear below it, one per line
+            // and the user should be able to select only one option per question
+            // The question id's must not be displayed
+        });
+    </script>
+</head>
+
+<body>
+    <div id='questions'>
+
+    </div>
+    <button id='evaluate'>Evaluate</button>
+</body>
+
+</html>
